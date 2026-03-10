@@ -1,0 +1,698 @@
+/* =========================================
+   1. RESET & GLOBAL
+   ========================================= */
+/* =========================================
+   1. RESET & GLOBAL
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-image: url("BG.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #000;
+    min-height: 100vh;
+}
+
+/* =========================================
+   2. NAVBAR
+   ========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.navbar-title {
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.navbar-links ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar-links ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.navbar-links ul li a:hover {
+    color: #555;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* =========================================
+   3. JUDUL NEON (PUTIH)
+   ========================================= */
+.teks-neon {
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 40px;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff;
+    text-align: center;
+    margin-top: 80px;
+}
+
+/* =========================================
+   4. JUDUL HOBBIES & FOOD (PUTIH NEON)
+   ========================================= */
+.hobbies-title,
+.food-title {
+    color: #fff;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 40px #fff;
+}
+
+/* =========================================
+   5. GLASS GALLERY
+   ========================================= */
+.glass-gallery {
+    width: 90%;
+    margin: 80px auto;
+    padding: 60px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-horizontal {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* =========================================
+   6. POLAROID CARD (HOBBIES)
+   ========================================= */
+.polaroid {
+    background: white;
+    padding: 15px 15px 45px 15px;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    width: 260px;
+    transition: 0.4s ease;
+    animation: wiggle 3s ease-in-out infinite;
+    position: relative;
+}
+
+.polaroid:hover {
+    transform: translateY(-15px) scale(1.1) rotate(1deg);
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.5);
+}
+
+.image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: 0.4s ease;
+}
+
+.polaroid:hover .image-wrapper img {
+    transform: scale(1.15);
+    filter: brightness(0.6);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: 0.4s ease;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.polaroid:hover .overlay {
+    opacity: 1;
+}
+
+/* =========================================
+   7. FLIP CARD (FOOD & DRINK)
+   ========================================= */
+.flip-card {
+    background-color: transparent;
+    width: 260px;
+    height: 200px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.flip-card-front {
+    background: transparent;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.flip-card-back {
+    background: linear-gradient(135deg, #6A2C70, #8B478F);
+    color: white;
+    border: 3px solid #6A2C70;
+    transform: rotateY(180deg);
+    padding: 20px;
+}
+
+.flip-card-back h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.flip-card-back p {
+    font-size: 1rem;
+}
+
+/* =========================================
+   8. SPINNING DISC PLAYER (HANYA 1)
+   ========================================= */
+.spinning-disc-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 10%;
+    margin-top: 50px;
+}
+
+.spinning-disc {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    position: relative;
+    animation: spin 10s linear infinite;
+    cursor: pointer;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+.spinning-disc:hover {
+    animation-play-state: paused;
+    transform: scale(1.05);
+}
+
+.disc-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+}
+
+.disc-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Lubang tengah disc */
+.disc-inner::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+
+.disc-info {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+}
+
+.disc-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.disc-info p {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.disc-link {
+    margin-top: 20px;
+}
+
+/* =========================================
+   9. TOMBOL PLAY (TRANSPARAN + WHITE BORDER)
+   ========================================= */
+.play-disc-btn {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    box-shadow: none;
+}
+
+.play-disc-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: white;
+    transform: rotate(5deg) scale(1.1);
+    box-shadow: none;
+}
+
+.play-disc-btn:active {
+    transform: rotate(2deg) scale(0.95);
+}
+
+/* =========================================
+   10. ANIMASI PUTAR 360°
+   ========================================= */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================
+   11. ANIMASI WIGGLE
+   ========================================= */
+@keyframes wiggle {
+    0% { transform: rotate(0deg) translateY(0px); }
+    20% { transform: rotate(3deg) translateY(-5px); }
+    40% { transform: rotate(-3deg) translateY(5px); }
+    60% { transform: rotate(2deg) translateY(-4px); }
+    80% { transform: rotate(-2deg) translateY(4px); }
+    100% { transform: rotate(0deg) translateY(0px); }
+}
+
+/* =========================================
+
+/* =========================================
+   12. DREAM SCHOOL (BLUR OVERLAY SEPARATOR)
+   ========================================= */
+.dream-school-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 10%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+    /* BOX BLUR SEBAGAI OVERLAY/SEPARATOR */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+.dream-school-title {
+    color: #fff;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 40px #fff;
+}
+
+.dream-school-grid {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/* =========================================
+   GAMBAR DI DALAM BLUR OVERLAY
+   ========================================= */
+.dream-school-card {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dream-school-card:hover {
+    transform: translateY(-10px);
+}
+
+/* GAMBAR TANPA BOX (LANGSUNG DI ATAS BLUR) */
+.dream-school-image {
+    width: 250px;
+    height: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.dream-school-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+/* EFEK NEON HOVER */
+.dream-school-card:hover .dream-school-image {
+    box-shadow: 
+        0 0 20px rgba(255, 255, 255, 0.5),
+        0 0 40px rgba(255, 255, 255, 0.3),
+        0 0 60px rgba(255, 255, 255, 0.2);
+}
+
+.dream-school-card:hover .dream-school-image img {
+    transform: scale(1.1);
+}
+
+/* Cursor pointer pada gambar */
+.dream-school-image {
+    cursor: pointer;
+}
+
+.dream-school-text {
+    text-align: center;
+}
+
+.dream-school-text h3 {
+    font-size: 1.4rem;
+    font-weight: normal;
+    margin: 0;
+    transition: 0.3s;
+}
+
+/* UPH - Warna Hijau */
+.dream-school-card:nth-child(1) .dream-school-text h3 {
+    color: #1DB954;
+}
+
+/* UGM - Warna Hitam */
+.dream-school-card:nth-child(2) .dream-school-text h3 {
+    color: #000;
+}
+
+/* =========================================
+   13. FOOTER QUOTE
+   ========================================= */
+.quote-footer {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 30px 10%;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 50px;
+}
+
+.quote-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quote-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: normal;
+    color: #000;
+    line-height: 1.6;
+    min-height: 60px;
+}
+
+.quote-text::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* =========================================
+   14. RESPONSIVE (HP)
+   ========================================= */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .navbar-links ul {
+        margin-top: 10px;
+        gap: 15px;
+    }
+
+    .teks-neon {
+        font-size: 2rem;
+        margin-top: 60px;
+    }
+
+    .hobbies-title,
+    .food-title {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .glass-gallery {
+        padding: 30px;
+        width: 95%;
+    }
+
+    .gallery-horizontal {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .polaroid {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .flip-card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .spinning-disc {
+        width: 200px;
+        height: 200px;
+    }
+
+    .disc-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .disc-info p {
+        font-size: 0.9rem;
+    }
+
+    .play-disc-btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .dream-school-container {
+        padding: 40px 5%;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .dream-school-title {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .dream-school-grid {
+        gap: 30px;
+    }
+
+    .dream-school-image {
+        width: 180px;
+        height: 150px;
+    }
+
+    .dream-school-text h3 {
+        font-size: 1.2rem;
+    }
+
+    .quote-footer {
+        padding: 20px 5%;
+    }
+
+    .quote-text {
+        font-size: 1.1rem;
+    }
+}
+
+/* =========================================
+   13. RESPONSIVE (HP)
+   ========================================= */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .navbar-links ul {
+        margin-top: 10px;
+        gap: 15px;
+    }
+
+    .teks-neon {
+        font-size: 2rem;
+        margin-top: 60px;
+    }
+
+    .hobbies-title,
+    .food-title {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .glass-gallery {
+        padding: 30px;
+        width: 95%;
+    }
+
+    .gallery-horizontal {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .polaroid {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .flip-card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .spinning-disc {
+        width: 200px;
+        height: 200px;
+    }
+
+    .disc-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .disc-info p {
+        font-size: 0.9rem;
+    }
+
+    .play-disc-btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .quote-footer {
+        padding: 20px 5%;
+    }
+
+    .quote-text {
+        font-size: 1.1rem;
+    }
+}
+
+
+
+
+

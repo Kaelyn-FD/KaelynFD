@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Kaelyn Fredelina</title>
+    <link rel="stylesheet" href="Style-Home.CSS">
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav class="navbar">
+        <p class="navbar-title">
+            <strong>CV - Kaelyn Fredelina</strong> 
+        </p>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Bagian Profil Utama -->
+    <section class="profile-section">
+        <div class="profile-photo">
+            <img src="Foto Seragam.jpeg" alt="Kaelyn" class="foto-bulat">
+        </div>
+
+        <header class="hero">
+            <div class="bio-text">
+                <div class="card">
+                    <h1 class="teks-neon">Hello, I'm Kaelyn Fredelina</h1>
+                    <p>
+                        Perkenalkan, nama saya Kaelyn Fredelina biasanya dipanggil Kaelyn. Umur saya adalah 15 tahun. Saya tinggal di Jati Cluster Helios 5 no 30. Saya adalah murid kelas 9 di Sekolah Santa Laurensia Suvarna Sutera. Saya bersekolah di Santa Laurensia selama 3 tahun. Saat SMA nanti, saya akan pergi ke UPH College. Saat kuliah nanti saya ingin pergi ke UGM.
+                        <br><br>
+                        Sebagai seorang murid, saya ingin mendapatkan nilai bagus. Saya sekarang ingin berusaha untuk mengikuti banyak lomba. Saya bercita-cita untuk menjadi dokter kulit. Oleh karena itu saya ingin menjadi murid yang lebih rajin, disiplin, dan tidak bermalas-malasan. Makanan favoritku adalah bakmie dan minuman favoritku adalah lemon tea.
+                    </p> 
+                    
+                    <div class="button-container">
+                        <!-- Tombol ini sekarang memicu JavaScript -->
+                        <button class="button-matcha" onclick="openGallery()">View Profile Picture</button>
+                    </div>
+                    <div class="button-container">
+                        <a href="About.html" style="text-decoration: none;">
+                            <button class="button-matcha">About Me</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+
+    <!-- Bagian Galeri (Tetap ada di halaman utama) -->
+    <section class="gallery">
+        <h1 class="neon-text-bright">Profile Picture</h1>
+        <div class="grid">
+            <img src="Foto 1.jpeg" alt="Foto 1" class="img-hover">
+            <img src="Foto 2.jpeg" alt="Foto 2" class="img-hover">
+            <img src="Foto 3.jpeg" alt="Foto 3" class="img-hover">
+        </div>
+    </section>
+
+    <!-- MODAL POPUP (Baru Ditambahkan) -->
+    <div id="galleryModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeGallery()">&times;</span>
+            <h2 class="modal-title">Profile Pictures</h2>
+            <div class="modal-grid">
+                <img src="Foto 1.jpeg" alt="Foto 1" class="modal-img">
+                <img src="Foto 2.jpeg" alt="Foto 2" class="modal-img">
+                <img src="Foto 3.jpeg" alt="Foto 3" class="modal-img">
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Efek Bunga -->
+    <script>
+        // 1. Script Efek Bunga
+        document.addEventListener('mousemove', function(e) {
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            flower.style.left = e.clientX + 'px';
+            flower.style.top = e.clientY + 'px';
+            const size = Math.random() * 15 + 10; 
+            flower.style.width = size + 'px';
+            flower.style.height = size + 'px';
+            document.body.appendChild(flower);
+            setTimeout(() => { flower.remove(); }, 1000);
+        });
+
+        // 2. Script Modal Gallery (Baru)
+        function openGallery() {
+            document.getElementById('galleryModal').style.display = 'flex';
+        }
+
+        function closeGallery() {
+            document.getElementById('galleryModal').style.display = 'none';
+        }
+
+        // Tutup modal jika klik di luar gambar
+        window.onclick = function(event) {
+            const modal = document.getElementById('galleryModal');
+            if (event.target == modal) {
+                closeGallery();
+            }
+        }
+    </script>
+
+</body>
+</html>

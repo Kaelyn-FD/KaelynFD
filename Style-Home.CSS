@@ -1,0 +1,375 @@
+/* =========================================
+   1. RESET & GLOBAL STYLES
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    /* Pastikan file Background.jpg ada di folder yang sama */
+    background-image: url("Background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #000;
+    min-height: 100vh;
+}
+
+/* =========================================
+   2. NAVBAR
+   ========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.navbar-title {
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.navbar-links ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar-links ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.navbar-links ul li a:hover {
+    color: #555;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* =========================================
+   PROFILE SECTION (LAYOUT)
+   ========================================= */
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 60px 10%;
+    flex-wrap: wrap;
+    justify-content: center; /* PENTING: Ini yang menggeser seluruh konten ke tengah */
+    text-align: center; /* Agar teks di dalam card juga rata tengah */
+}
+
+.profile-photo {
+    flex: 0 0 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foto-bulat {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+    box-shadow: 0 0 20px #ffffff;
+    transition: 0.3s;
+    margin: 0; /* Pastikan margin 0 */
+}
+
+.foto-bulat:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px #ffffff, 0 0 60px #ffffff;
+}
+
+/* Agar teks di dalam card juga rata tengah */
+.card {
+    text-align: center;
+}
+
+.card p {
+    text-align: justify; /* Teks tetap mudah dibaca */
+}
+/* =========================================
+   4. BIO & CARD (KARTU TEKS)
+   ========================================= */
+.bio-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.2); /* Efek Kaca */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    
+    /* PENTING: Hapus position absolute agar tidak menutupi elemen lain */
+    position: relative; 
+    top: auto;
+    left: auto;
+    transform: none;
+}
+
+.teks-neon {
+    color: #fff;
+    font-size: 2rem;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.card p {
+    color: #000; /* Warna teks hitam agar terbaca di background kaca */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   5. TOMBOL (BUTTON)
+   ========================================= */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button-matcha {
+    background-color: #a7c080;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.button-matcha:hover {
+    background-color: #8fa86a;
+    transform: rotate(5deg) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* =========================================
+   6. GALERI FOTO
+   ========================================= */
+.gallery {
+    padding: 50px 10%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1); /* Sedikit pembeda section */
+}
+
+.neon-text-bright {
+    font-size: 2.5rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff;
+    margin-bottom: 30px;
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.img-hover {
+    width: 200px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: 0.5s;
+    border: 3px solid transparent;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.img-hover:hover {
+    transform: scale(1.1);
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 20px #ffffff;
+}
+
+/* =========================================
+   7. EFEK BUNGA (JAVASCRIPT)
+   ========================================= */
+.flower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    pointer-events: none;
+    z-index: 9999;
+    animation: fadeOut 1s linear forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+/* =========================================
+   8. RESPONSIVE (TAMPILAN HP)
+   ========================================= */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .navbar-links ul {
+        margin-top: 10px;
+        gap: 15px;
+    }
+
+    .profile-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5%;
+    }
+
+    .foto-bulat {
+        margin: 0 auto;
+        width: 200px;
+        height: 200px;
+    }
+
+    .card {
+        text-align: left;
+    }
+
+    .teks-neon {
+        font-size: 1.5rem;
+    }
+
+    .neon-text-bright {
+        font-size: 2rem;
+    }
+}
+
+/* =========================================
+   9. MODAL POPUP GALLERY (BARU)
+   ========================================= */
+.modal {
+    display: none; /* Tersembunyi secara default */
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Latar belakang gelap transparan */
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    animation: modalPop 0.3s ease-out;
+}
+
+@keyframes modalPop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+    color: #fff;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #ff6b6b;
+    transform: rotate(90deg);
+}
+
+.modal-title {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #fff;
+}
+
+.modal-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.modal-img {
+    width: 200px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-img:hover {
+    transform: scale(1.05);
+    border-color: #fff;
+    box-shadow: 0 0 20px #fff;
+}
+
+/* Responsif untuk Modal di HP */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+    .modal-img {
+        width: 140px;
+        height: 200px;
+    }
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me!</title>
+    <link rel="stylesheet" href="Style-About.CSS">
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav class="navbar">
+        <p class="navbar-title">
+            <strong>CV - Kaelyn Fredelina</strong> 
+        </p>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Judul Neon Utama -->
+    <h1 class="teks-neon">About Me!</h1>
+
+    <!-- =========================================
+         SPINNING DISC PLAYER
+         ========================================= -->
+    <div class="spinning-disc-container">
+        <div class="spinning-disc">
+            <div class="disc-inner">
+                <img src="PartyAnthem.jpg" alt="Music Cover" class="disc-cover">
+            </div>
+        </div>
+        <div class="disc-info">
+            <h3>My Favorite Song</h3>
+            <p>Kaelyn Fredelina</p>
+        </div>
+        <a href="https://youtu.be/mGUjVbsYG6E?si=wW8DSpbr6_Avvc_a" target="_blank" class="disc-link">
+            <button class="play-disc-btn">▶️ Play on YouTube</button>
+        </a>
+    </div>
+
+    <!-- =========================================
+         HOBBIES (POLAROID)
+         ========================================= -->
+    <div class="glass-gallery">
+        <h2 class="hobbies-title">Hobbies</h2>
+        
+        <div class="gallery-horizontal">
+            <div class="polaroid wiggle">
+                <div class="image-wrapper">
+                    <img src="Badminton.jpeg" alt="Badminton">
+                    <div class="overlay">
+                        <h3>Sports</h3>
+                        <p>Saya sangat suka bermain badminton</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="polaroid wiggle">
+                <div class="image-wrapper">
+                    <img src="Reading.jpg" alt="Reading">
+                    <div class="overlay">
+                        <h3>Reading</h3>
+                        <p>Saya suka membaca</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="polaroid wiggle">
+                <div class="image-wrapper">
+                    <img src="Writing.jpg" alt="Writing">
+                    <div class="overlay">
+                        <h3>Writing</h3>
+                        <p>Saya suka menulis cerita</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================
+         FAVORITE FOOD AND DRINK (FLIP CARD)
+         ========================================= -->
+    <div class="glass-gallery">
+        <h2 class="food-title">Favorite Food and Drink</h2>
+        
+        <div class="gallery-horizontal">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Bakmie.jpg" alt="Bakmie">
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Makanan</h3>
+                        <p>Bakmie</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="LemonTea.jpg" alt="Lemon Tea">
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Minuman</h3>
+                        <p>Lemon Tea</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================
+         DREAM SCHOOL (DIPERBAIKI - GAMBAR BISA DIKLIK)
+         ========================================= -->
+    <div class="dream-school-container">
+        <h2 class="dream-school-title">Dream School</h2>
+        
+        <div class="dream-school-grid">
+            <!-- UPH College (KIRI) -->
+            <a href="https://www.uph.edu/id/" target="_blank" class="dream-school-card">
+                <div class="dream-school-image">
+                    <img src="UPH.png" alt="UPH College">
+                </div>
+                <div class="dream-school-text">
+                    <h3><p style="color: black;">UPH College</p></h3>
+                </div>
+            </a>
+
+            <!-- Universitas Gadjah Mada (KANAN) -->
+            <a href="https://ugm.ac.id/id/" target="_blank" class="dream-school-card">
+                <div class="dream-school-image">
+                    <img src="UGM.jpg" alt="Universitas Gadjah Mada">
+                </div>
+                <div class="dream-school-text">
+                    <h3>Universitas Gadjah Mada</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- =========================================
+         FOOTER QUOTE (DI PALING BAWAH)
+         ========================================= -->
+    <footer class="quote-footer">
+        <div class="quote-container">
+            <p class="quote-text" id="quoteText"></p>
+        </div>
+    </footer>
+
+    <!-- Script Efek Bunga -->
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            flower.style.left = e.clientX + 'px';
+            flower.style.top = e.clientY + 'px';
+            const size = Math.random() * 15 + 10; 
+            flower.style.width = size + 'px';
+            flower.style.height = size + 'px';
+            document.body.appendChild(flower);
+            setTimeout(() => { flower.remove(); }, 1000);
+        });
+
+        // =========================================
+        // QUOTE TYPING ANIMATION
+        // =========================================
+        const quoteText = document.getElementById('quoteText');
+        const quote = '"Nothing Is Impossible, The Word Itself Says I\'m Possible!" - By Audrey Hepburn';
+        let index = 0;
+
+        function typeQuote() {
+            if (index < quote.length) {
+                quoteText.textContent += quote.charAt(index);
+                index++;
+                setTimeout(typeQuote, 50);
+            }
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(typeQuote, 1000);
+        });
+    </script>
+
+</body>
+</html>
